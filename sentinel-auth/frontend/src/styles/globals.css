@@ -1,0 +1,1023 @@
+* {
+    box-sizing:
+        border-box;
+}
+
+html,
+body,
+#root {
+    width:
+        100%;
+
+    min-height:
+        100%;
+
+    margin:
+        0;
+}
+
+html {
+    transition:
+        background
+        var(--transition-normal);
+}
+
+body {
+    margin:
+        0;
+
+    font-family:
+        var(--font-family-base);
+
+    background:
+        var(--page-bg);
+
+    color:
+        var(--text-primary);
+
+    transition:
+        background
+        var(--transition-normal),
+        color
+        var(--transition-normal);
+}
+
+button,
+input,
+select,
+textarea {
+    font-family:
+        inherit;
+}
+
+a {
+    color:
+        inherit;
+}
+
+.sentinel-auth-page {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    background:
+        var(--auth-background);
+
+    overflow:
+        hidden;
+}
+
+.sentinel-auth-shell {
+    position:
+        relative;
+
+    z-index:
+        5;
+
+    min-height:
+        100vh;
+}
+
+.sentinel-auth-layout {
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+}
+
+.sentinel-auth-visual,
+.sentinel-auth-form-column {
+    position:
+        relative;
+
+    min-width:
+        0;
+}
+
+.sentinel-auth-visual {
+    display:
+        flex;
+
+    align-items:
+        center;
+}
+
+.sentinel-auth-form-column {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+}
+
+.sentinel-brand-block {
+    position:
+        relative;
+
+    z-index:
+        5;
+}
+
+.sentinel-brand-mark {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--accent);
+
+    color:
+        var(--accent-text);
+
+    font-weight:
+        700;
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+.sentinel-eyebrow {
+    color:
+        var(--text-muted);
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.18em;
+}
+
+.sentinel-hero-title,
+.sentinel-auth-title {
+    font-family:
+        var(--font-family-heading);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-hero-description,
+.sentinel-auth-description {
+    color:
+        var(--text-secondary);
+}
+
+.sentinel-feature-row {
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+}
+
+.sentinel-feature-row span {
+    color:
+        var(--text-secondary);
+
+    border:
+        1px solid
+        var(--border-color);
+}
+
+.sentinel-auth-card {
+    position:
+        relative;
+
+    width:
+        100%;
+
+    background:
+        var(--surface-primary);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-label {
+    color:
+        var(--text-secondary);
+
+    font-weight:
+        600;
+}
+
+.sentinel-input,
+.sentinel-select {
+    background:
+        var(--surface-secondary);
+
+    color:
+        var(--text-primary);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    box-shadow:
+        none;
+}
+
+.sentinel-input::placeholder {
+    color:
+        var(--text-muted);
+}
+
+.sentinel-input:focus,
+.sentinel-select:focus {
+    color:
+        var(--text-primary);
+
+    background:
+        var(--surface-primary);
+
+    border-color:
+        var(--border-color-strong);
+
+    box-shadow:
+        none;
+}
+
+.sentinel-primary-button {
+    background:
+        var(--accent);
+
+    border-color:
+        var(--accent);
+
+    color:
+        var(--accent-text);
+
+    font-weight:
+        600;
+}
+
+.sentinel-primary-button:hover {
+    background:
+        var(--accent-hover);
+
+    border-color:
+        var(--accent-hover);
+
+    color:
+        var(--accent-text);
+}
+
+.sentinel-secondary-button {
+    background:
+        var(--surface-secondary);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-secondary-button:hover {
+    background:
+        var(--surface-tertiary);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-text-link {
+    color:
+        var(--text-secondary);
+
+    text-decoration:
+        none;
+}
+
+.sentinel-text-link:hover {
+    color:
+        var(--text-primary);
+
+    text-decoration:
+        underline;
+}
+
+.sentinel-divider {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    color:
+        var(--text-muted);
+}
+
+.sentinel-divider::before,
+.sentinel-divider::after {
+    content:
+        "";
+
+    flex:
+        1;
+
+    height:
+        1px;
+
+    background:
+        var(--border-color);
+}
+
+.sentinel-auth-footer {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-wrap:
+        wrap;
+
+    color:
+        var(--text-muted);
+}
+
+.sentinel-mobile-brand {
+    display:
+        none;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Settings
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-settings {
+    position:
+        fixed;
+
+    top:
+        1.25rem;
+
+    right:
+        1.25rem;
+
+    z-index:
+        3000;
+}
+
+.sentinel-settings-trigger,
+.sentinel-icon-button {
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    background:
+        var(--surface-primary);
+
+    color:
+        var(--text-primary);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+.sentinel-settings-trigger {
+    width:
+        42px;
+
+    height:
+        42px;
+}
+
+.sentinel-icon-button {
+    width:
+        36px;
+
+    height:
+        36px;
+}
+
+.sentinel-settings-backdrop {
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        2998;
+
+    border:
+        0;
+
+    background:
+        transparent;
+}
+
+.sentinel-settings-panel {
+    position:
+        absolute;
+
+    top:
+        52px;
+
+    right:
+        0;
+
+    z-index:
+        2999;
+
+    width:
+        min(
+            360px,
+            calc(100vw - 2rem)
+        );
+
+    padding:
+        1.5rem;
+
+    background:
+        var(--settings-bg);
+
+    color:
+        var(--text-primary);
+
+    border:
+        1px solid
+        var(--border-color);
+
+    box-shadow:
+        var(--shadow-md);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+.sentinel-settings-title {
+    font-weight:
+        700;
+}
+
+.sentinel-settings-subtitle,
+.sentinel-settings-help {
+    color:
+        var(--text-muted);
+}
+
+.sentinel-settings-subtitle {
+    font-size:
+        0.78rem;
+}
+
+.sentinel-settings-help {
+    margin-top:
+        0.6rem;
+
+    font-size:
+        0.75rem;
+
+    line-height:
+        1.5;
+}
+
+.sentinel-settings-label {
+    display:
+        block;
+
+    margin-bottom:
+        0.5rem;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.08em;
+
+    text-transform:
+        uppercase;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Celebration
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-celebration-banner {
+    position:
+        fixed;
+
+    top:
+        1.2rem;
+
+    left:
+        50%;
+
+    z-index:
+        2000;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        0.5rem;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        0.55rem 0.9rem;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    background:
+        var(--surface-primary);
+
+    color:
+        var(--text-secondary);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Optional Theme Structures
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-window-titlebar,
+.sentinel-xp-taskbar,
+.sentinel-xp-desktop-icons,
+.sentinel-ocean-decoration {
+    display:
+        none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Feedback
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-alert {
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    gap:
+        0.65rem;
+
+    margin-bottom:
+        1.25rem;
+
+    padding:
+        0.8rem
+        0.9rem;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        var(--radius-md);
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.5;
+}
+
+.sentinel-alert-danger {
+    background:
+        color-mix(
+            in srgb,
+            var(--danger, #a83030)
+            8%,
+            var(--surface-primary)
+        );
+
+    border-color:
+        color-mix(
+            in srgb,
+            var(--danger, #a83030)
+            30%,
+            var(--border-color)
+        );
+
+    color:
+        var(--danger, #a83030);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Password Field
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-password-field {
+    position:
+        relative;
+}
+
+.sentinel-password-field
+.sentinel-input {
+    padding-right:
+        3rem;
+}
+
+.sentinel-password-toggle {
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    right:
+        0.45rem;
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    transform:
+        translateY(-50%);
+
+    border:
+        0;
+
+    border-radius:
+        var(--radius-sm);
+
+    background:
+        transparent;
+
+    color:
+        var(--text-muted);
+
+    cursor:
+        pointer;
+}
+
+.sentinel-password-toggle:hover {
+    background:
+        var(--surface-tertiary);
+
+    color:
+        var(--text-primary);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Application Loader
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-app-loader {
+    width:
+        100%;
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--auth-background);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-app-loader-content {
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+}
+
+.sentinel-app-loader-content
+.sentinel-brand-mark {
+    margin:
+        0;
+}
+
+.sentinel-loader-spinner {
+    width:
+        26px;
+
+    height:
+        26px;
+
+    border:
+        2px solid
+        var(--border-color);
+
+    border-top-color:
+        var(--accent);
+
+    border-radius:
+        50%;
+
+    animation:
+        sentinel-loader-spin
+        0.75s
+        linear
+        infinite;
+}
+
+.sentinel-loader-text {
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.76rem;
+}
+
+@keyframes sentinel-loader-spin {
+    to {
+        transform:
+            rotate(360deg);
+    }
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Temporary Dashboard
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-dashboard-page {
+    min-height:
+        100vh;
+
+    background:
+        var(--page-bg);
+
+    color:
+        var(--text-primary);
+}
+
+.sentinel-dashboard-header {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    gap:
+        2rem;
+
+    padding-top:
+        2rem;
+}
+
+.sentinel-dashboard-title {
+    margin:
+        0.5rem 0;
+
+    font-family:
+        var(--font-family-heading);
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.5rem
+        );
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.045em;
+}
+
+.sentinel-dashboard-description {
+    margin:
+        0;
+
+    color:
+        var(--text-secondary);
+}
+
+.sentinel-dashboard-card {
+    height:
+        100%;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        1rem;
+
+    padding:
+        1.25rem;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--surface-primary);
+
+    box-shadow:
+        var(--shadow-sm);
+}
+
+.sentinel-dashboard-card-icon {
+    width:
+        44px;
+
+    height:
+        44px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    flex-shrink:
+        0;
+
+    border-radius:
+        var(--radius-md);
+
+    background:
+        var(--accent);
+
+    color:
+        var(--accent-text);
+}
+
+.sentinel-dashboard-card-label {
+    margin-bottom:
+        0.1rem;
+
+    color:
+        var(--text-muted);
+
+    font-size:
+        0.72rem;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.06em;
+}
+
+.sentinel-user-data {
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        var(--radius-lg);
+
+    background:
+        var(--surface-primary);
+}
+
+.sentinel-user-data-header {
+    padding:
+        0.8rem
+        1rem;
+
+    border-bottom:
+        1px solid
+        var(--border-color);
+
+    color:
+        var(--text-secondary);
+
+    font-size:
+        0.75rem;
+
+    font-weight:
+        700;
+
+    text-transform:
+        uppercase;
+
+    letter-spacing:
+        0.06em;
+}
+
+.sentinel-user-data pre {
+    margin:
+        0;
+
+    padding:
+        1.25rem;
+
+    overflow:
+        auto;
+
+    color:
+        var(--text-primary);
+
+    font-size:
+        0.78rem;
+}
+
+@media (
+    max-width:
+    767.98px
+) {
+    .sentinel-dashboard-header {
+        align-items:
+            flex-start;
+
+        flex-direction:
+            column;
+    }
+}

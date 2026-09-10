@@ -1,0 +1,800 @@
+.theme-windows-xp {
+    --font-family-base:
+        Tahoma,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    --font-family-heading:
+        Tahoma,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    --page-bg:
+        #dce9fb;
+
+    --surface-primary:
+        #f3f6fb;
+
+    --surface-secondary:
+        #ffffff;
+
+    --surface-tertiary:
+        #e4ebf5;
+
+    --text-primary:
+        #1c1c1c;
+
+    --text-secondary:
+        #4a4a4a;
+
+    --text-muted:
+        #6f6f6f;
+
+    --accent:
+        #2f69c9;
+
+    --accent-hover:
+        #2455a7;
+
+    --accent-text:
+        #ffffff;
+
+    --border-color:
+        #9db2ce;
+
+    --border-color-strong:
+        #5b7fae;
+
+    --shadow-sm:
+        0 2px 4px
+        rgba(0, 0, 0, 0.12);
+
+    --shadow-md:
+        0 10px 24px
+        rgba(0, 0, 0, 0.16);
+
+    --settings-bg:
+        #f4f7fb;
+
+    --auth-background:
+        linear-gradient(
+            180deg,
+            #e7f0fd 0%,
+            #c9dcf5 42%,
+            #b6cdec 100%
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| XP-Inspired Full Page Layout
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-auth-shell {
+    min-height:
+        100vh;
+}
+
+.theme-windows-xp
+.sentinel-auth-layout {
+    display:
+        grid;
+
+    grid-template-columns:
+        1.05fr
+        0.95fr;
+
+    min-height:
+        100vh;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Left Visual Area
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-auth-visual {
+    min-height:
+        100vh;
+
+    padding:
+        5rem 6vw;
+
+    align-items:
+        center;
+
+    border-right:
+        1px solid
+        #8ca8ca;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9e9fb 0%,
+            #c3dcf7 45%,
+            #a9c8ed 100%
+        );
+}
+
+.theme-windows-xp
+.sentinel-auth-visual::before {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        360px;
+
+    height:
+        360px;
+
+    right:
+        -100px;
+
+    bottom:
+        -120px;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(
+            87,
+            145,
+            210,
+            0.2
+        );
+}
+
+.theme-windows-xp
+.sentinel-brand-block {
+    max-width:
+        650px;
+}
+
+.theme-windows-xp
+.sentinel-brand-mark {
+    width:
+        60px;
+
+    height:
+        60px;
+
+    margin-bottom:
+        2rem;
+
+    border:
+        1px solid
+        #1f4f91;
+
+    border-radius:
+        5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #5f9ee8,
+            #2e6ccc
+        );
+
+    color:
+        white;
+
+    font-size:
+        1.5rem;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        ),
+        inset
+        -1px -1px 0
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+.theme-windows-xp
+.sentinel-eyebrow {
+    color:
+        #315d93;
+
+    font-size:
+        0.72rem;
+
+    letter-spacing:
+        0.1em;
+}
+
+.theme-windows-xp
+.sentinel-hero-title {
+    margin:
+        0.8rem 0;
+
+    max-width:
+        680px;
+
+    font-size:
+        clamp(
+            3rem,
+            5vw,
+            5.7rem
+        );
+
+    line-height:
+        0.97;
+
+    letter-spacing:
+        -0.045em;
+
+    font-weight:
+        700;
+
+    color:
+        #153d78;
+}
+
+.theme-windows-xp
+.sentinel-hero-description {
+    max-width:
+        500px;
+
+    margin-top:
+        1.5rem;
+
+    font-size:
+        1rem;
+
+    line-height:
+        1.7;
+
+    color:
+        #35577c;
+}
+
+.theme-windows-xp
+.sentinel-feature-row {
+    gap:
+        0.65rem;
+
+    margin-top:
+        2rem;
+}
+
+.theme-windows-xp
+.sentinel-feature-row span {
+    padding:
+        0.45rem
+        0.8rem;
+
+    border:
+        1px solid
+        #91acd0;
+
+    border-radius:
+        4px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.45
+        );
+
+    color:
+        #264f80;
+
+    font-size:
+        0.75rem;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Form Side
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-auth-form-column {
+    min-height:
+        100vh;
+
+    padding:
+        4rem 2rem;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f7f9fd,
+            #edf2f8
+        );
+}
+
+.theme-windows-xp
+.sentinel-auth-card {
+    max-width:
+        430px;
+
+    padding:
+        2rem;
+
+    border:
+        1px solid
+        #9fb2cb;
+
+    border-radius:
+        5px;
+
+    background:
+        #f2f5fa;
+
+    box-shadow:
+        0 8px 22px
+        rgba(
+            53,
+            82,
+            120,
+            0.16
+        ),
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.95
+        );
+}
+
+.theme-windows-xp
+.sentinel-auth-title {
+    margin-top:
+        0.45rem;
+
+    font-size:
+        1.9rem;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        -0.025em;
+
+    color:
+        #17427a;
+}
+
+.theme-windows-xp
+.sentinel-auth-description {
+    margin:
+        0.7rem 0
+        1.8rem;
+
+    color:
+        #536274;
+
+    line-height:
+        1.55;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Labels and Inputs
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-label {
+    margin-bottom:
+        0.35rem;
+
+    color:
+        #303030;
+
+    font-size:
+        0.78rem;
+
+    font-weight:
+        700;
+}
+
+.theme-windows-xp
+.sentinel-input,
+.theme-windows-xp
+.sentinel-select {
+    min-height:
+        42px;
+
+    padding:
+        0.55rem
+        0.65rem;
+
+    border:
+        1px solid
+        #7f9db9;
+
+    border-radius:
+        2px;
+
+    background:
+        #ffffff;
+
+    color:
+        #1d1d1d;
+
+    font-size:
+        0.85rem;
+
+    box-shadow:
+        inset
+        1px 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+.theme-windows-xp
+.sentinel-input:focus,
+.theme-windows-xp
+.sentinel-select:focus {
+    border-color:
+        #3d72b3;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0
+        1px
+        #7fa5d6,
+        inset
+        1px 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.08
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Buttons
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-primary-button {
+    min-height:
+        42px;
+
+    border:
+        1px solid
+        #23528b;
+
+    border-radius:
+        3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #6ca4e5 0%,
+            #3c79c5 48%,
+            #2d65ad 100%
+        );
+
+    color:
+        white;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        700;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        ),
+        inset
+        -1px -1px 0
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+.theme-windows-xp
+.sentinel-primary-button:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #5b95da,
+            #2e67b2
+        );
+
+    border-color:
+        #1c477c;
+
+    color:
+        white;
+}
+
+.theme-windows-xp
+.sentinel-secondary-button {
+    min-height:
+        42px;
+
+    border:
+        1px solid
+        #879cb6;
+
+    border-radius:
+        3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #e0e8f2
+        );
+
+    color:
+        #25394f;
+
+    font-size:
+        0.82rem;
+
+    font-weight:
+        600;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        #ffffff;
+}
+
+.theme-windows-xp
+.sentinel-secondary-button:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #f9fbfe,
+            #d3dfec
+        );
+
+    border-color:
+        #6d88aa;
+
+    color:
+        #1f3550;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Divider / Links / Footer
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-text-link {
+    color:
+        #2b5f9e;
+
+    font-size:
+        0.78rem;
+}
+
+.theme-windows-xp
+.sentinel-text-link:hover {
+    color:
+        #173f73;
+}
+
+.theme-windows-xp
+.sentinel-divider {
+    gap:
+        0.9rem;
+
+    margin:
+        1.7rem 0
+        1.1rem;
+
+    color:
+        #6b7785;
+
+    font-size:
+        0.72rem;
+}
+
+.theme-windows-xp
+.sentinel-divider::before,
+.theme-windows-xp
+.sentinel-divider::after {
+    background:
+        #b3c1d1;
+}
+
+.theme-windows-xp
+.sentinel-auth-footer {
+    gap:
+        0.45rem;
+
+    margin-top:
+        1.8rem;
+
+    color:
+        #718096;
+
+    font-size:
+        0.7rem;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Settings
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-settings-trigger,
+.theme-windows-xp
+.sentinel-icon-button {
+    border:
+        1px solid
+        #7f9db9;
+
+    border-radius:
+        3px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #dfe8f3
+        );
+
+    color:
+        #315d93;
+
+    box-shadow:
+        1px 1px 3px
+        rgba(
+            0,
+            0,
+            0,
+            0.14
+        );
+}
+
+.theme-windows-xp
+.sentinel-settings-panel {
+    border:
+        1px solid
+        #7f9db9;
+
+    border-radius:
+        4px;
+
+    background:
+        #f1f4f8;
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            0,
+            0,
+            0,
+            0.18
+        );
+
+    backdrop-filter:
+        none;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Remove Actual Desktop/Window Decorations
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-window-titlebar,
+.theme-windows-xp
+.sentinel-xp-taskbar,
+.theme-windows-xp
+.sentinel-xp-desktop-icons {
+    display:
+        none !important;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (
+    max-width:
+    991.98px
+) {
+    .theme-windows-xp
+    .sentinel-auth-layout {
+        display:
+            block;
+    }
+
+    .theme-windows-xp
+    .sentinel-auth-visual {
+        display:
+            none;
+    }
+
+    .theme-windows-xp
+    .sentinel-auth-form-column {
+        padding:
+            5rem 1.25rem
+            2rem;
+    }
+
+    .theme-windows-xp
+    .sentinel-auth-card {
+        max-width:
+            460px;
+    }
+
+    .theme-windows-xp
+    .sentinel-mobile-brand {
+        display:
+            block;
+    }
+}

@@ -1,0 +1,604 @@
+.theme-twilight-ocean {
+    --font-family-base:
+        "Segoe UI",
+        ui-sans-serif,
+        system-ui,
+        sans-serif;
+
+    --font-family-heading:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+    --page-bg:
+        #041018;
+
+    --surface-primary:
+        rgba(
+            12,
+            35,
+            52,
+            0.82
+        );
+
+    --surface-secondary:
+        rgba(
+            20,
+            50,
+            70,
+            0.72
+        );
+
+    --surface-tertiary:
+        #193f57;
+
+    --text-primary:
+        #eefaff;
+
+    --text-secondary:
+        #b9d7e8;
+
+    --text-muted:
+        #789db3;
+
+    --accent:
+        #7cd9ff;
+
+    --accent-hover:
+        #a0e5ff;
+
+    --accent-text:
+        #031018;
+
+    --border-color:
+        rgba(
+            132,
+            209,
+            240,
+            0.18
+        );
+
+    --border-color-strong:
+        rgba(
+            132,
+            209,
+            240,
+            0.48
+        );
+
+    --shadow-sm:
+        0 10px 30px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+    --shadow-md:
+        0 40px 100px
+        rgba(
+            0,
+            0,
+            0,
+            0.45
+        );
+
+    --settings-bg:
+        rgba(
+            7,
+            28,
+            42,
+            0.88
+        );
+
+    --auth-background:
+        radial-gradient(
+            circle at 15% 15%,
+            rgba(
+                72,
+                189,
+                235,
+                0.17
+            ),
+            transparent 27%
+        ),
+        radial-gradient(
+            circle at 80% 85%,
+            rgba(
+                26,
+                99,
+                157,
+                0.32
+            ),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            #030b12,
+            #071c2a 50%,
+            #0a2b40
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Twilight Layout
+|--------------------------------------------------------------------------
+*/
+
+.theme-twilight-ocean
+.sentinel-auth-shell {
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        5rem 3rem;
+}
+
+.theme-twilight-ocean
+.sentinel-auth-layout {
+    position:
+        relative;
+
+    width:
+        min(
+            1180px,
+            100%
+        );
+
+    min-height:
+        700px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr
+        430px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        36px;
+
+    background:
+        rgba(
+            5,
+            23,
+            35,
+            0.48
+        );
+
+    box-shadow:
+        0 50px 130px
+        rgba(
+            0,
+            0,
+            0,
+            0.4
+        );
+
+    backdrop-filter:
+        blur(22px);
+}
+
+.theme-twilight-ocean
+.sentinel-auth-visual {
+    padding:
+        5rem;
+
+    overflow:
+        hidden;
+}
+
+.theme-twilight-ocean
+.sentinel-brand-block {
+    max-width:
+        580px;
+}
+
+.theme-twilight-ocean
+.sentinel-brand-mark {
+    width:
+        66px;
+
+    height:
+        66px;
+
+    margin-bottom:
+        3rem;
+
+    border-radius:
+        50%;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-size:
+        1.7rem;
+
+    box-shadow:
+        0 0 40px
+        rgba(
+            117,
+            214,
+            255,
+            0.25
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-eyebrow {
+    font-size:
+        0.7rem;
+
+    color:
+        #75d6ff;
+}
+
+.theme-twilight-ocean
+.sentinel-hero-title {
+    margin:
+        1rem 0;
+
+    font-size:
+        clamp(
+            3.3rem,
+            5vw,
+            6rem
+        );
+
+    font-weight:
+        400;
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -0.045em;
+}
+
+.theme-twilight-ocean
+.sentinel-hero-description {
+    max-width:
+        460px;
+
+    margin-top:
+        2rem;
+
+    font-size:
+        1.05rem;
+
+    line-height:
+        1.8;
+}
+
+.theme-twilight-ocean
+.sentinel-feature-row {
+    gap:
+        1rem;
+
+    margin-top:
+        2.5rem;
+}
+
+.theme-twilight-ocean
+.sentinel-feature-row span {
+    padding:
+        0.55rem 1rem;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Ocean Decoration
+|--------------------------------------------------------------------------
+*/
+
+.theme-twilight-ocean
+.sentinel-ocean-decoration {
+    display:
+        block;
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+}
+
+.theme-twilight-ocean
+.sentinel-orbit {
+    position:
+        absolute;
+
+    border:
+        1px solid
+        rgba(
+            117,
+            214,
+            255,
+            0.12
+        );
+
+    border-radius:
+        50%;
+}
+
+.theme-twilight-ocean
+.sentinel-orbit-one {
+    width:
+        450px;
+
+    height:
+        450px;
+
+    right:
+        -180px;
+
+    bottom:
+        -220px;
+}
+
+.theme-twilight-ocean
+.sentinel-orbit-two {
+    width:
+        300px;
+
+    height:
+        300px;
+
+    right:
+        -100px;
+
+    bottom:
+        -140px;
+}
+
+.theme-twilight-ocean
+.sentinel-orbit-three {
+    width:
+        120px;
+
+    height:
+        120px;
+
+    right:
+        20px;
+
+    bottom:
+        -20px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(
+                117,
+                214,
+                255,
+                0.12
+            ),
+            transparent 68%
+        );
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Floating Login Panel
+|--------------------------------------------------------------------------
+*/
+
+.theme-twilight-ocean
+.sentinel-auth-form-column {
+    padding:
+        2rem;
+
+    background:
+        rgba(
+            3,
+            13,
+            21,
+            0.42
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-auth-card {
+    max-width:
+        390px;
+
+    padding:
+        2rem;
+
+    border:
+        1px solid
+        var(--border-color);
+
+    border-radius:
+        24px;
+
+    background:
+        rgba(
+            13,
+            38,
+            55,
+            0.62
+        );
+
+    box-shadow:
+        var(--shadow-md);
+
+    backdrop-filter:
+        blur(28px);
+}
+
+.theme-twilight-ocean
+.sentinel-auth-title {
+    margin-top:
+        0.7rem;
+
+    font-size:
+        2.3rem;
+
+    font-weight:
+        400;
+
+    letter-spacing:
+        -0.03em;
+}
+
+.theme-twilight-ocean
+.sentinel-auth-description {
+    margin:
+        0.9rem 0
+        2rem;
+
+    line-height:
+        1.7;
+}
+
+.theme-twilight-ocean
+.sentinel-input {
+    min-height:
+        50px;
+
+    border-radius:
+        15px;
+}
+
+.theme-twilight-ocean
+.sentinel-primary-button,
+.theme-twilight-ocean
+.sentinel-secondary-button {
+    min-height:
+        50px;
+
+    border-radius:
+        15px;
+}
+
+.theme-twilight-ocean
+.sentinel-divider {
+    gap:
+        1rem;
+
+    margin:
+        2rem 0
+        1.2rem;
+
+    font-size:
+        0.72rem;
+}
+
+.theme-twilight-ocean
+.sentinel-auth-footer {
+    gap:
+        0.5rem;
+
+    margin-top:
+        2rem;
+
+    font-size:
+        0.7rem;
+}
+
+.theme-twilight-ocean
+.sentinel-settings-trigger,
+.theme-twilight-ocean
+.sentinel-icon-button {
+    border-radius:
+        14px;
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.theme-twilight-ocean
+.sentinel-settings-panel {
+    border-radius:
+        22px;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (
+    max-width:
+    991.98px
+) {
+    .theme-twilight-ocean
+    .sentinel-auth-shell {
+        padding:
+            5rem 1rem
+            2rem;
+    }
+
+    .theme-twilight-ocean
+    .sentinel-auth-layout {
+        display:
+            block;
+
+        min-height:
+            auto;
+
+        max-width:
+            520px;
+    }
+
+    .theme-twilight-ocean
+    .sentinel-auth-visual {
+        display:
+            none;
+    }
+
+    .theme-twilight-ocean
+    .sentinel-auth-form-column {
+        padding:
+            1rem;
+    }
+
+    .theme-twilight-ocean
+    .sentinel-auth-card {
+        max-width:
+            none;
+    }
+
+    .theme-twilight-ocean
+    .sentinel-mobile-brand {
+        display:
+            block;
+    }
+}
