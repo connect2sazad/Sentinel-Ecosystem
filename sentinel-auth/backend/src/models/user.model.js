@@ -12,6 +12,12 @@ const User = sequelize.define(
     {
         ...baseFields,
 
+        is_platform_admin: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false,
+            defaultValue: false
+        },
+
         name: {
             type: DataTypes.STRING(100),
             allowNull: false,

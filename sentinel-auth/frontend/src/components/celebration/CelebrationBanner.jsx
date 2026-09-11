@@ -1,6 +1,6 @@
 import {
     useCelebration
-} from "../../celebrations/CelebrationProvider.jsx";
+} from "../../celebrations/celebration-context.js";
 
 const CelebrationBanner = () => {
     const {

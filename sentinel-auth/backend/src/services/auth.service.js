@@ -27,10 +27,6 @@ import {
 import AppException from "../utils/app-exception.js";
 
 import {
-    createSlug
-} from "../utils/slug.js";
-
-import {
     generateAccessToken,
     generateRefreshToken,
     hashRefreshToken
@@ -49,8 +45,7 @@ class AuthService {
             email,
             username,
             password,
-            confirm_password,
-            organization_name
+            confirm_password
         } = payload;
 
         if (!name?.trim()) {
@@ -66,14 +61,6 @@ class AuthService {
                 "Email is required.",
                 422,
                 "EMAIL_REQUIRED"
-            );
-        }
-
-        if (!organization_name?.trim()) {
-            throw new AppException(
-                "Organization name is required.",
-                422,
-                "ORGANIZATION_NAME_REQUIRED"
             );
         }
 
@@ -180,45 +167,6 @@ class AuthService {
                     }
                 );
 
-            const organization =
-                await Organization.create(
-                    {
-                        name:
-                            organization_name.trim(),
-
-                        slug:
-                            createSlug(
-                                organization_name
-                            ),
-
-                        email:
-                            normalizedEmail
-                    },
-                    {
-                        transaction
-                    }
-                );
-
-            const membership =
-                await OrganizationMember.create(
-                    {
-                        user_id:
-                            user.id,
-
-                        organization_id:
-                            organization.id,
-
-                        role:
-                            "owner",
-
-                        joined_at:
-                            new Date()
-                    },
-                    {
-                        transaction
-                    }
-                );
-
             await transaction.commit();
 
             await this.createEmailVerificationOtp(
@@ -228,6 +176,7 @@ class AuthService {
             return {
                 message:
                     "Registration successful. Please verify your email address.",
+
                 user: {
                     id:
                         user.id,
@@ -243,24 +192,14 @@ class AuthService {
 
                     status:
                         user.status
-                },
-
-                organization: {
-                    id:
-                        organization.id,
-
-                    name:
-                        organization.name,
-
-                    slug:
-                        organization.slug,
-
-                    role:
-                        membership.role
                 }
             };
         } catch (error) {
-            await transaction.rollback();
+            if (
+                !transaction.finished
+            ) {
+                await transaction.rollback();
+            }
 
             throw error;
         }
@@ -343,6 +282,20 @@ class AuthService {
             );
         }
 
+        const passwordMatches =
+            await bcrypt.compare(
+                password,
+                user.password
+            );
+
+        if (!passwordMatches) {
+            throw new AppException(
+                "Invalid email, username, or password.",
+                401,
+                "INVALID_CREDENTIALS"
+            );
+        }
+
         if (!user.status) {
             throw new AppException(
                 "This account is disabled.",
@@ -358,20 +311,6 @@ class AuthService {
                 "Please verify your email address before signing in.",
                 403,
                 "EMAIL_NOT_VERIFIED"
-            );
-        }
-
-        const passwordMatches =
-            await bcrypt.compare(
-                password,
-                user.password
-            );
-
-        if (!passwordMatches) {
-            throw new AppException(
-                "Invalid email, username, or password.",
-                401,
-                "INVALID_CREDENTIALS"
             );
         }
 
@@ -628,6 +567,7 @@ class AuthService {
 
     serializeUser(user) {
         return {
+            is_platform_admin: user.is_platform_admin === true,
             id:
                 user.id,
 

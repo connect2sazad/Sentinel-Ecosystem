@@ -1,4 +1,5 @@
 import axios from "axios";
+import { singleFlight } from "./single-flight.js";
 
 import {
     clearAccessToken,
@@ -8,7 +9,7 @@ import {
 
 const API_BASE_URL =
     import.meta.env
-        .VITE_API_BASE_URL;
+        .VITE_API_BASE_URL || "/api";
 
 const apiClient =
     axios.create({
@@ -43,6 +44,8 @@ const refreshClient =
                 "application/json"
         }
     });
+
+const refreshSession = singleFlight(() => refreshClient.post("/auth/refresh"));
 
 let isRefreshing =
     false;
@@ -184,9 +187,7 @@ apiClient.interceptors.response.use(
 
         try {
             const response =
-                await refreshClient.post(
-                    "/auth/refresh"
-                );
+                await refreshSession();
 
             const token =
                 extractAccessToken(
@@ -238,5 +239,6 @@ apiClient.interceptors.response.use(
 
 export {
     apiClient,
-    refreshClient
+    refreshClient,
+    refreshSession
 };

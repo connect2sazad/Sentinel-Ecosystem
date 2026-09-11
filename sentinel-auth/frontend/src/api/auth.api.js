@@ -1,6 +1,7 @@
 import {
     apiClient,
-    refreshClient
+    refreshClient,
+    refreshSession
 } from "./api.client.js";
 
 import {
@@ -31,6 +32,151 @@ const extractAccessToken = (
         null
     );
 };
+
+const register = async ({
+    name,
+    email,
+    username,
+    password,
+    confirmPassword
+}) => {
+    const response =
+        await refreshClient.post(
+            "/auth/register",
+            {
+                name,
+
+                email,
+
+                username,
+
+                password,
+
+                confirm_password:
+                    confirmPassword
+            }
+        );
+
+    return extractData(
+        response
+    );
+};
+
+const verifyEmail = async ({
+    email,
+    otp
+}) => {
+    const response =
+        await refreshClient.post(
+            "/auth/verify-email",
+            {
+                email,
+                otp
+            }
+        );
+
+    return extractData(
+        response
+    );
+};
+
+const resendVerificationOtp =
+    async ({
+        email
+    }) => {
+        const response =
+            await refreshClient.post(
+                "/auth/resend-verification-otp",
+                {
+                    email
+                }
+            );
+
+        return extractData(
+            response
+        );
+    };
+
+const forgotPassword =
+    async ({
+        email
+    }) => {
+        const response =
+            await refreshClient.post(
+                "/auth/forgot-password",
+                {
+                    email
+                }
+            );
+
+        return extractData(
+            response
+        );
+    };
+
+const verifyResetOtp =
+    async ({
+        email,
+        otp
+    }) => {
+        const response =
+            await refreshClient.post(
+                "/auth/verify-reset-otp",
+                {
+                    email,
+                    otp
+                }
+            );
+
+        return extractData(
+            response
+        );
+    };
+
+const resendResetOtp =
+    async ({
+        email
+    }) => {
+        const response =
+            await refreshClient.post(
+                "/auth/resend-reset-otp",
+                {
+                    email
+                }
+            );
+
+        return extractData(
+            response
+        );
+    };
+
+const resetPassword =
+    async ({
+        email,
+        resetToken,
+        password,
+        confirmPassword
+    }) => {
+        const response =
+            await refreshClient.post(
+                "/auth/reset-password",
+                {
+                    email,
+
+                    reset_token:
+                        resetToken,
+
+                    password,
+
+                    confirm_password:
+                        confirmPassword
+                }
+            );
+
+        return extractData(
+            response
+        );
+    };
 
 const login = async ({
     login,
@@ -67,9 +213,7 @@ const login = async ({
 
 const refresh = async () => {
     const response =
-        await refreshClient.post(
-            "/auth/refresh"
-        );
+        await refreshSession();
 
     const accessToken =
         extractAccessToken(
@@ -120,9 +264,26 @@ const logout = async () => {
 };
 
 const authApi = {
+    register,
+
+    verifyEmail,
+
+    resendVerificationOtp,
+
+    forgotPassword,
+
+    verifyResetOtp,
+
+    resendResetOtp,
+
+    resetPassword,
+
     login,
+
     refresh,
+
     me,
+
     logout
 };
 

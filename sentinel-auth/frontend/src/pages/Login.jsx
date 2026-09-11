@@ -1,12 +1,164 @@
 import {
-    Link
+    useState
+} from "react";
+
+import {
+    Link,
+    useLocation,
+    useNavigate
 } from "react-router-dom";
 
 import SettingsMenu from "../components/settings/SettingsMenu.jsx";
 
 import CelebrationBanner from "../components/celebration/CelebrationBanner.jsx";
 
+import {
+    useAuth
+} from "../context/auth-context.js";
+
+const getApiError = (
+    error
+) => {
+    return (
+        error?.response?.data?.message ||
+        error?.response?.data?.error ||
+        error?.message ||
+        "Unable to sign in. Please try again."
+    );
+};
+
 const Login = () => {
+
+    const navigate =
+        useNavigate();
+
+    const location =
+        useLocation();
+
+    const {
+        login,
+        authenticating
+    } =
+        useAuth();
+
+    const verificationMessage =
+        location.state?.message ||
+        "";
+
+    const suggestedLogin =
+        location.state?.login ||
+        "";
+
+    const [
+        form,
+        setForm
+    ] =
+        useState({
+            login:
+                suggestedLogin,
+
+            password:
+                ""
+        });
+
+    const [
+        error,
+        setError
+    ] =
+        useState("");
+
+    const [
+        showPassword,
+        setShowPassword
+    ] =
+        useState(false);
+
+    const handleChange = (
+        event
+    ) => {
+        const {
+            name,
+            value
+        } =
+            event.target;
+
+        setForm(
+            previous => ({
+                ...previous,
+
+                [name]:
+                    value
+            })
+        );
+
+        if (error) {
+            setError("");
+        }
+    };
+
+    const handleSubmit =
+        async (
+            event
+        ) => {
+            event.preventDefault();
+
+            setError("");
+
+            const loginValue =
+                form.login.trim();
+
+            if (!loginValue) {
+                setError(
+                    "Enter your email or username."
+                );
+
+                return;
+            }
+
+            if (!form.password) {
+                setError(
+                    "Enter your password."
+                );
+
+                return;
+            }
+
+            try {
+
+                await login({
+                    login:
+                        loginValue,
+
+                    password:
+                        form.password
+                });
+
+                const destination =
+                    location.state
+                        ?.from
+                        ?.pathname ||
+                    "/dashboard";
+
+                navigate(
+                    destination,
+                    {
+                        replace:
+                            true
+                    }
+                );
+
+            } catch (
+                requestError
+            ) {
+
+                setError(
+                    getApiError(
+                        requestError
+                    )
+                );
+            }
+        };
+
     return (
         <div
             className="sentinel-auth-page"
@@ -15,77 +167,9 @@ const Login = () => {
 
             <SettingsMenu />
 
-            {/* Windows XP desktop decoration */}
-            <div
-                className="sentinel-xp-desktop-icons"
-            >
-                <div
-                    className="sentinel-xp-desktop-icon"
-                >
-                    <i className="bi bi-pc-display" />
-
-                    <span>
-                        My Sentinel
-                    </span>
-                </div>
-
-                <div
-                    className="sentinel-xp-desktop-icon"
-                >
-                    <i className="bi bi-globe2" />
-
-                    <span>
-                        Sentinel Network
-                    </span>
-                </div>
-            </div>
-
             <main
                 className="sentinel-auth-shell"
             >
-                {/* Windows XP title bar */}
-                <div
-                    className="sentinel-window-titlebar"
-                >
-                    <div
-                        className="sentinel-window-title"
-                    >
-                        <span
-                            className="sentinel-window-icon"
-                        >
-                            S
-                        </span>
-
-                        Sentinel Identity
-                    </div>
-
-                    <div
-                        className="sentinel-window-controls"
-                    >
-                        <button
-                            type="button"
-                            aria-label="Minimize"
-                        >
-                            _
-                        </button>
-
-                        <button
-                            type="button"
-                            aria-label="Maximize"
-                        >
-                            □
-                        </button>
-
-                        <button
-                            type="button"
-                            className="sentinel-window-close"
-                            aria-label="Close"
-                        >
-                            ×
-                        </button>
-                    </div>
-                </div>
-
                 <div
                     className="sentinel-auth-layout"
                 >
@@ -142,6 +226,7 @@ const Login = () => {
 
                         <div
                             className="sentinel-ocean-decoration"
+                            aria-hidden="true"
                         >
                             <div
                                 className="sentinel-orbit sentinel-orbit-one"
@@ -192,20 +277,74 @@ const Login = () => {
                                 connected Sentinel applications.
                             </p>
 
-                            <form>
+                            {
+                                verificationMessage && (
+                                    <div
+                                        className="sentinel-alert sentinel-alert-success"
+                                        role="status"
+                                    >
+                                        <i
+                                            className="bi bi-check-circle"
+                                        />
+
+                                        <span>
+                                            {
+                                                verificationMessage
+                                            }
+                                        </span>
+                                    </div>
+                                )
+                            }
+
+                            {
+                                error && (
+                                    <div
+                                        className="sentinel-alert sentinel-alert-danger"
+                                        role="alert"
+                                    >
+                                        <i
+                                            className="bi bi-exclamation-circle"
+                                        />
+
+                                        <span>
+                                            {error}
+                                        </span>
+                                    </div>
+                                )
+                            }
+
+                            <form
+                                onSubmit={
+                                    handleSubmit
+                                }
+                            >
                                 <div
                                     className="mb-3"
                                 >
                                     <label
+                                        htmlFor="login"
                                         className="form-label sentinel-label"
                                     >
                                         Email or username
                                     </label>
 
                                     <input
+                                        id="login"
+                                        name="login"
                                         type="text"
                                         className="form-control sentinel-input"
                                         placeholder="you@example.com"
+                                        value={
+                                            form.login
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
+                                        autoComplete="username"
+                                        disabled={
+                                            authenticating
+                                        }
+                                        autoFocus
                                     />
                                 </div>
 
@@ -216,6 +355,7 @@ const Login = () => {
                                         className="d-flex justify-content-between align-items-center"
                                     >
                                         <label
+                                            htmlFor="password"
                                             className="form-label sentinel-label"
                                         >
                                             Password
@@ -229,18 +369,87 @@ const Login = () => {
                                         </Link>
                                     </div>
 
-                                    <input
-                                        type="password"
-                                        className="form-control sentinel-input"
-                                        placeholder="Enter your password"
-                                    />
+                                    <div
+                                        className="sentinel-password-field"
+                                    >
+                                        <input
+                                            id="password"
+                                            name="password"
+                                            type={
+                                                showPassword
+                                                    ? "text"
+                                                    : "password"
+                                            }
+                                            className="form-control sentinel-input"
+                                            placeholder="Enter your password"
+                                            value={
+                                                form.password
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
+                                            autoComplete="current-password"
+                                            disabled={
+                                                authenticating
+                                            }
+                                        />
+
+                                        <button
+                                            type="button"
+                                            className="sentinel-password-toggle"
+                                            onClick={() =>
+                                                setShowPassword(
+                                                    previous =>
+                                                        !previous
+                                                )
+                                            }
+                                            aria-label={
+                                                showPassword
+                                                    ? "Hide password"
+                                                    : "Show password"
+                                            }
+                                            tabIndex="-1"
+                                        >
+                                            <i
+                                                className={
+                                                    showPassword
+                                                        ? "bi bi-eye-slash"
+                                                        : "bi bi-eye"
+                                                }
+                                            />
+                                        </button>
+                                    </div>
                                 </div>
 
                                 <button
                                     type="submit"
                                     className="btn sentinel-primary-button w-100 mt-4"
+                                    disabled={
+                                        authenticating
+                                    }
                                 >
-                                    Continue
+                                    {
+                                        authenticating
+                                            ? (
+                                                <>
+                                                    <span
+                                                        className="spinner-border spinner-border-sm me-2"
+                                                        aria-hidden="true"
+                                                    />
+
+                                                    Signing in...
+                                                </>
+                                            )
+                                            : (
+                                                <>
+                                                    Continue
+
+                                                    <i
+                                                        className="bi bi-arrow-right ms-2"
+                                                    />
+                                                </>
+                                            )
+                                    }
                                 </button>
                             </form>
 
@@ -252,12 +461,12 @@ const Login = () => {
                                 </span>
                             </div>
 
-                            <button
-                                type="button"
-                                className="btn sentinel-secondary-button w-100"
+                            <Link
+                                to="/register"
+                                className="btn sentinel-secondary-button w-100 d-flex align-items-center justify-content-center"
                             >
                                 Create account
-                            </button>
+                            </Link>
 
                             <div
                                 className="sentinel-auth-footer"
@@ -286,38 +495,6 @@ const Login = () => {
                     </section>
                 </div>
             </main>
-
-            {/* Windows XP bottom bar */}
-            <div
-                className="sentinel-xp-taskbar"
-            >
-                <button
-                    type="button"
-                    className="sentinel-xp-start"
-                >
-                    <i className="bi bi-windows" />
-
-                    <span>
-                        start
-                    </span>
-                </button>
-
-                <div
-                    className="sentinel-xp-task"
-                >
-                    <span>
-                        S
-                    </span>
-
-                    Sentinel Identity
-                </div>
-
-                <div
-                    className="sentinel-xp-clock"
-                >
-                    Sentinel
-                </div>
-            </div>
         </div>
     );
 };

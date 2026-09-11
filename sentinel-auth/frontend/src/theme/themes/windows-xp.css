@@ -798,3 +798,333 @@
             block;
     }
 }
+
+/*
+|--------------------------------------------------------------------------
+| Account / Invitation - Windows XP Inspired
+|--------------------------------------------------------------------------
+*/
+
+.theme-windows-xp
+.sentinel-account-page {
+    background:
+        linear-gradient(
+            180deg,
+            #e7f0fd,
+            #c9dcf5
+        );
+}
+
+.theme-windows-xp
+.sentinel-account-topbar {
+    min-height: 68px;
+
+    border-bottom: 1px solid #7694ba;
+
+    background:
+        linear-gradient(
+            180deg,
+            #f8fbff,
+            #d8e7f8
+        );
+
+    box-shadow:
+        inset
+        0 -1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.7
+        );
+}
+
+.theme-windows-xp
+.sentinel-dashboard-toolbar {
+    border: 1px solid #91a9c7;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #edf3fa
+        );
+
+    box-shadow:
+        inset
+        1px 1px 0
+        #ffffff,
+        0 2px 5px
+        rgba(
+            0,
+            0,
+            0,
+            0.09
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-action {
+    border:
+        1px solid
+        #16488d;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #5c98e1 0%,
+            #3777d2 45%,
+            #2861b9 100%
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.58
+        ),
+        inset
+        -1px -1px 0
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-action:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #71a8e9,
+            #397ad3
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-action-icon {
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.5
+        );
+
+    border-radius: 3px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.14
+        );
+}
+
+.theme-windows-xp
+.sentinel-admin-review-action {
+    border: 1px solid #8299b5;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #e2e9f2
+        );
+
+    color: #1d3760;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        #ffffff;
+}
+
+.theme-windows-xp
+.sentinel-admin-review-action:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #d3e3f6
+        );
+
+    color: #153d78;
+}
+
+.theme-windows-xp
+.sentinel-invitation-page {
+    background:
+        linear-gradient(
+            180deg,
+            #e4effc 0%,
+            #c9dcf4 50%,
+            #b9d0ec 100%
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-back {
+    color: #1f4f91;
+}
+
+.theme-windows-xp
+.sentinel-invitation-card {
+    border: 1px solid #8ba4c4;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #f0f4f9
+        );
+
+    box-shadow:
+        inset
+        1px 1px 0
+        #ffffff,
+        0 8px 20px
+        rgba(
+            36,
+            72,
+            116,
+            0.15
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 7px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2d6dcc,
+            #5897e2,
+            #2d6dcc
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-icon {
+    border: 1px solid #5479a7;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #edf5ff,
+            #cfdef0
+        );
+
+    color: #245ba7;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        #ffffff;
+}
+
+.theme-windows-xp
+.sentinel-invitation-card
+.form-control {
+    border: 1px solid #7f9db9;
+
+    border-radius: 2px;
+
+    background: #ffffff;
+
+    color: #1c1c1c;
+
+    box-shadow:
+        inset
+        1px 1px 2px
+        rgba(
+            0,
+            0,
+            0,
+            0.09
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-card
+.form-control:focus {
+    border-color: #316ac5;
+
+    outline: 1px solid #316ac5;
+
+    outline-offset: 0;
+}
+
+.theme-windows-xp
+.sentinel-invitation-submit {
+    border: 1px solid #16488d;
+
+    border-radius: 4px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #5f9ee8,
+            #2e6ccc
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        inset
+        1px 1px 0
+        rgba(
+            255,
+            255,
+            255,
+            0.65
+        ),
+        inset
+        -1px -1px 0
+        rgba(
+            0,
+            0,
+            0,
+            0.12
+        );
+}
+
+.theme-windows-xp
+.sentinel-invitation-submit:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #6ca9ef,
+            #3776d3
+        );
+
+    color: #ffffff;
+}

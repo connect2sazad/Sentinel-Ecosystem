@@ -602,3 +602,318 @@
             block;
     }
 }
+
+/*
+|--------------------------------------------------------------------------
+| Account / Invitation - Twilight Ocean
+|--------------------------------------------------------------------------
+*/
+
+.theme-twilight-ocean
+.sentinel-account-page {
+    background:
+        radial-gradient(
+            circle at 12% 8%,
+            rgba(
+                84,
+                199,
+                241,
+                0.12
+            ),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 88% 75%,
+            rgba(
+                40,
+                106,
+                168,
+                0.2
+            ),
+            transparent 35%
+        ),
+        #041018;
+}
+
+.theme-twilight-ocean
+.sentinel-account-topbar {
+    background:
+        rgba(
+            7,
+            26,
+            39,
+            0.78
+        );
+
+    backdrop-filter: blur(20px);
+}
+
+.theme-twilight-ocean
+.sentinel-dashboard-toolbar {
+    border-color:
+        rgba(
+            124,
+            217,
+            255,
+            0.18
+        );
+
+    border-radius: 22px;
+
+    background:
+        rgba(
+            12,
+            35,
+            52,
+            0.7
+        );
+
+    box-shadow:
+        0 20px 55px
+        rgba(
+            0,
+            0,
+            0,
+            0.2
+        );
+
+    backdrop-filter: blur(18px);
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-action {
+    border:
+        1px solid
+        rgba(
+            124,
+            217,
+            255,
+            0.5
+        );
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6fd2f8,
+            #96e6ff
+        );
+
+    color: #031018;
+
+    box-shadow:
+        0 10px 30px
+        rgba(
+            94,
+            201,
+            242,
+            0.18
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-action:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #91e2ff,
+            #b0edff
+        );
+
+    box-shadow:
+        0 14px 40px
+        rgba(
+            94,
+            201,
+            242,
+            0.25
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-action-icon {
+    border:
+        1px solid
+        rgba(
+            3,
+            16,
+            24,
+            0.12
+        );
+
+    background:
+        rgba(
+            3,
+            16,
+            24,
+            0.09
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-admin-review-action {
+    border-color:
+        rgba(
+            124,
+            217,
+            255,
+            0.2
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.035
+        );
+
+    color: #d9f5ff;
+}
+
+.theme-twilight-ocean
+.sentinel-admin-review-action:hover {
+    background:
+        rgba(
+            124,
+            217,
+            255,
+            0.09
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-page {
+    background:
+        radial-gradient(
+            circle at 18% 10%,
+            rgba(
+                72,
+                189,
+                235,
+                0.18
+            ),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 82% 86%,
+            rgba(
+                26,
+                99,
+                157,
+                0.28
+            ),
+            transparent 38%
+        ),
+        linear-gradient(
+            145deg,
+            #030b12,
+            #071c2a 50%,
+            #0a2b40
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-card {
+    border:
+        1px solid
+        rgba(
+            124,
+            217,
+            255,
+            0.18
+        );
+
+    border-radius: 28px;
+
+    background:
+        rgba(
+            12,
+            35,
+            52,
+            0.76
+        );
+
+    box-shadow:
+        0 40px 100px
+        rgba(
+            0,
+            0,
+            0,
+            0.38
+        );
+
+    backdrop-filter: blur(24px);
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-icon {
+    border-color:
+        rgba(
+            124,
+            217,
+            255,
+            0.35
+        );
+
+    border-radius: 50%;
+
+    background:
+        rgba(
+            124,
+            217,
+            255,
+            0.1
+        );
+
+    color: #7cd9ff;
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            124,
+            217,
+            255,
+            0.12
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-card h1 {
+    font-weight: 400;
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-card
+.form-control {
+    border-color:
+        rgba(
+            124,
+            217,
+            255,
+            0.18
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.04
+        );
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-submit {
+    background: #7cd9ff;
+
+    color: #031018;
+}
+
+.theme-twilight-ocean
+.sentinel-invitation-submit:hover {
+    background: #a0e5ff;
+
+    color: #031018;
+}

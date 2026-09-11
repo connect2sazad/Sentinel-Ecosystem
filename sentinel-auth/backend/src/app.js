@@ -7,9 +7,12 @@ import cookieParser from "cookie-parser";
 import config from "./config/config.js";
 
 import apiRoutes from "./routes/index.js";
+import organizationsRouter from "./routes/organizations.route.js";
 
 import notFoundMiddleware from "./middlewares/not-found.middleware.js";
 import errorMiddleware from "./middlewares/error.middleware.js";
+import adminOrganizationsRouter
+    from "./routes/admin-organizations.route.js";
 
 const app = express();
 
@@ -87,6 +90,16 @@ app.get(
 app.use(
     "/api",
     apiRoutes
+);
+
+app.use(
+    "/api/admin",
+    adminOrganizationsRouter
+);
+
+app.use(
+    "/api/organizations",
+    organizationsRouter
 );
 
 app.use(

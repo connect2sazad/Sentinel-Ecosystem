@@ -1,6 +1,4 @@
 import {
-    createContext,
-    useContext,
     useMemo
 } from "react";
 
@@ -8,8 +6,7 @@ import {
     getCelebrationById
 } from "./celebration.registry.js";
 
-const CelebrationContext =
-    createContext(null);
+import { CelebrationContext } from "./celebration-context.js";
 
 /*
 |--------------------------------------------------------------------------
@@ -61,19 +58,4 @@ export const CelebrationProvider = ({
             {children}
         </CelebrationContext.Provider>
     );
-};
-
-export const useCelebration = () => {
-    const context =
-        useContext(
-            CelebrationContext
-        );
-
-    if (!context) {
-        throw new Error(
-            "useCelebration must be used inside CelebrationProvider."
-        );
-    }
-
-    return context;
 };

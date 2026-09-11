@@ -8,7 +8,7 @@ import {
 
 import {
     useTheme
-} from "../../theme/ThemeProvider.jsx";
+} from "../../theme/theme-context.js";
 
 const SettingsMenu = () => {
     const [

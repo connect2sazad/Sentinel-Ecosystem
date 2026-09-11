@@ -1,0 +1,1086 @@
+/*
+|--------------------------------------------------------------------------
+| Dashboard Toolbar
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-dashboard-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+    margin-bottom: 2rem;
+
+    padding: 1rem 1.1rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-primary);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.sentinel-dashboard-toolbar-copy {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    gap: 0.2rem;
+}
+
+.sentinel-dashboard-toolbar-label {
+    color: var(--text-primary);
+
+    font-size: 0.76rem;
+
+    font-weight: 700;
+}
+
+.sentinel-dashboard-toolbar-description {
+    color: var(--text-muted);
+
+    font-size: 0.68rem;
+
+    line-height: 1.45;
+}
+
+.sentinel-dashboard-actions {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 0.65rem;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Action Buttons
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-admin-review-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 0.5rem;
+
+    min-height: 46px;
+
+    padding: 0.65rem 1rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+
+    color: var(--text-primary);
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+}
+
+.sentinel-admin-review-action:hover,
+.sentinel-admin-review-action:focus-visible {
+    border-color: var(--border-color-strong);
+
+    background: var(--surface-tertiary);
+
+    color: var(--text-primary);
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Join With Invitation Action
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-invitation-action {
+    min-width: 235px;
+
+    min-height: 56px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0.7rem;
+
+    padding: 0.55rem 0.7rem;
+
+    border: 1px solid var(--border-color-strong);
+
+    border-radius: var(--radius-md);
+
+    background: var(--accent);
+
+    color: var(--accent-text);
+
+    text-align: left;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+}
+
+.sentinel-invitation-action:hover,
+.sentinel-invitation-action:focus-visible {
+    background: var(--accent-hover);
+
+    color: var(--accent-text);
+
+    transform: translateY(-1px);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.sentinel-invitation-action-icon {
+    width: 36px;
+    height: 36px;
+
+    display: grid;
+
+    place-items: center;
+
+    flex-shrink: 0;
+
+    border-radius: var(--radius-md);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.14
+        );
+}
+
+.sentinel-invitation-action-copy {
+    min-width: 0;
+
+    display: flex;
+
+    flex: 1;
+
+    flex-direction: column;
+
+    gap: 0.1rem;
+}
+
+.sentinel-invitation-action-copy strong {
+    color: inherit;
+
+    font-size: 0.74rem;
+
+    line-height: 1.25;
+}
+
+.sentinel-invitation-action-copy small {
+    color: inherit;
+
+    opacity: 0.72;
+
+    font-size: 0.62rem;
+
+    line-height: 1.25;
+}
+
+.sentinel-invitation-action-arrow {
+    flex-shrink: 0;
+
+    font-size: 0.8rem;
+
+    opacity: 0.8;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Account Overflow Protection
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-account-hero-content,
+.sentinel-account-panel,
+.sentinel-account-user-chip > div {
+    min-width: 0;
+}
+
+.sentinel-account-hero h1,
+.sentinel-account-user-chip strong,
+.sentinel-account-user-chip span {
+    overflow-wrap: anywhere;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Invitation Page
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-invitation-page {
+    position: relative;
+
+    min-height: 100vh;
+}
+
+.sentinel-invitation-container {
+    width:
+        min(
+            660px,
+            calc(
+                100% - 2.5rem
+            )
+        );
+
+    margin: 0 auto;
+
+    padding: 5rem 0 4rem;
+}
+
+.sentinel-invitation-back {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.35rem;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 0.72rem;
+
+    font-weight: 600;
+}
+
+.sentinel-invitation-back:hover {
+    color: var(--text-primary);
+
+    text-decoration: none;
+}
+
+.sentinel-invitation-card {
+    position: relative;
+
+    margin-top: 1.5rem;
+
+    padding:
+        clamp(
+            1.5rem,
+            5vw,
+            3rem
+        );
+
+    overflow: hidden;
+}
+
+.sentinel-invitation-icon {
+    width: 3.8rem;
+    height: 3.8rem;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 1.5rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-secondary);
+
+    color: var(--text-primary);
+
+    font-size: 1.35rem;
+}
+
+.sentinel-invitation-card h1 {
+    margin: 0.65rem 0 0.8rem;
+
+    font-family: var(--font-family-heading);
+
+    font-size:
+        clamp(
+            1.7rem,
+            5vw,
+            2.4rem
+        );
+
+    letter-spacing: -0.035em;
+}
+
+.sentinel-invitation-card p {
+    color: var(--text-secondary);
+
+    font-size: 0.74rem;
+
+    line-height: 1.7;
+}
+
+.sentinel-invitation-identity {
+    overflow-wrap: anywhere;
+}
+
+.sentinel-invitation-card .form-label {
+    margin-top: 0.75rem;
+
+    color: var(--text-primary);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+}
+
+.sentinel-invitation-card .form-control {
+    min-height: 3.25rem;
+
+    padding: 0.8rem 1rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+
+    color: var(--text-primary);
+
+    font-family: var(--font-family-base);
+
+    font-size: 0.78rem;
+}
+
+.sentinel-invitation-card .form-control::placeholder {
+    color: var(--text-muted);
+}
+
+.sentinel-invitation-card .form-control:focus {
+    border-color: var(--border-color-strong);
+
+    outline: 2px solid var(--border-color-strong);
+
+    outline-offset: 2px;
+
+    background: var(--surface-secondary);
+
+    color: var(--text-primary);
+
+    box-shadow: none;
+}
+
+.sentinel-invitation-submit {
+    width: 100%;
+
+    min-height: 3.25rem;
+
+    margin-top: 0.8rem;
+
+    border: 1px solid transparent;
+
+    border-radius: var(--radius-md);
+
+    background: var(--accent);
+
+    color: var(--accent-text);
+
+    font-size: 0.75rem;
+
+    font-weight: 700;
+}
+
+.sentinel-invitation-submit:hover,
+.sentinel-invitation-submit:focus-visible {
+    background: var(--accent-hover);
+
+    color: var(--accent-text);
+}
+
+.sentinel-invitation-submit:disabled {
+    background: var(--accent);
+
+    color: var(--accent-text);
+
+    opacity: 0.5;
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Responsive
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 800px) {
+    .sentinel-dashboard-toolbar {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .sentinel-dashboard-actions {
+        justify-content: stretch;
+    }
+
+    .sentinel-dashboard-actions .btn {
+        flex: 1 1 auto;
+    }
+}
+
+@media (max-width: 640px) {
+    .sentinel-dashboard-toolbar {
+        margin-bottom: 1.5rem;
+    }
+
+    .sentinel-dashboard-actions {
+        flex-direction: column;
+    }
+
+    .sentinel-dashboard-actions .btn {
+        width: 100%;
+    }
+
+    .sentinel-invitation-action {
+        min-width: 0;
+    }
+
+    .sentinel-account-topbar {
+        flex-wrap: wrap;
+
+        gap: 1rem;
+    }
+
+    .sentinel-account-topbar-actions {
+        flex-wrap: wrap;
+    }
+
+    .sentinel-invitation-container {
+        width:
+            min(
+                100% - 1.5rem,
+                660px
+            );
+
+        padding-top: 4.5rem;
+    }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Platform Admin - Organization Requests
+|--------------------------------------------------------------------------
+*/
+
+.sentinel-admin-org-page {
+    min-height: 100vh;
+
+    background: var(--page-background);
+
+    color: var(--text-primary);
+}
+
+.sentinel-admin-org-container {
+    width:
+        min(
+            1180px,
+            calc(
+                100% - 2rem
+            )
+        );
+
+    margin: 0 auto;
+
+    padding: 3rem 0 5rem;
+}
+
+.sentinel-admin-org-heading {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 2rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.sentinel-admin-org-heading h1 {
+    margin: 0.4rem 0 0.5rem;
+
+    font-family: var(--font-family-heading);
+
+    font-size:
+        clamp(
+            1.8rem,
+            4vw,
+            2.7rem
+        );
+
+    letter-spacing: -0.04em;
+}
+
+.sentinel-admin-org-heading p {
+    max-width: 640px;
+
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+
+    line-height: 1.65;
+}
+
+.sentinel-admin-org-filter {
+    min-width: 160px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.35rem;
+}
+
+.sentinel-admin-org-filter label {
+    color: var(--text-muted);
+
+    font-size: 0.62rem;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+.sentinel-admin-org-filter select {
+    min-height: 42px;
+
+    padding: 0 0.75rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-primary);
+
+    color: var(--text-primary);
+
+    font: inherit;
+
+    font-size: 0.72rem;
+}
+
+.sentinel-admin-org-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            4,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 0.75rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.sentinel-admin-org-stats > div {
+    padding: 1rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-primary);
+}
+
+.sentinel-admin-org-stats span {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.63rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+.sentinel-admin-org-stats strong {
+    display: block;
+
+    margin-top: 0.35rem;
+
+    font-size: 1.25rem;
+}
+
+.sentinel-admin-org-loading,
+.sentinel-admin-org-empty {
+    min-height: 280px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 0.65rem;
+
+    border: 1px dashed var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-primary);
+
+    color: var(--text-muted);
+
+    text-align: center;
+}
+
+.sentinel-admin-org-empty > i {
+    font-size: 1.6rem;
+}
+
+.sentinel-admin-org-empty h2 {
+    margin: 0;
+
+    color: var(--text-primary);
+
+    font-size: 0.95rem;
+}
+
+.sentinel-admin-org-empty p {
+    margin: 0;
+
+    font-size: 0.7rem;
+}
+
+.sentinel-admin-org-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.sentinel-admin-org-card {
+    padding: 1.25rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-primary);
+
+    box-shadow: var(--shadow-sm);
+}
+
+.sentinel-admin-org-card-top {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+
+    margin-bottom: 1.25rem;
+}
+
+.sentinel-admin-org-card-heading {
+    display: flex;
+
+    gap: 0.85rem;
+
+    min-width: 0;
+}
+
+.sentinel-admin-org-mark {
+    width: 46px;
+    height: 46px;
+
+    flex: 0 0 46px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-card-heading h2 {
+    margin: 0.2rem 0 0.15rem;
+
+    font-size: 1rem;
+}
+
+.sentinel-admin-org-card-heading p {
+    margin: 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.68rem;
+}
+
+.sentinel-admin-org-status {
+    padding: 0.35rem 0.6rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: 999px;
+
+    font-size: 0.62rem;
+
+    text-transform: capitalize;
+
+    white-space: nowrap;
+}
+
+.sentinel-admin-org-status-pending {
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-status-approved {
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-status-rejected {
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap: 0.65rem;
+}
+
+.sentinel-admin-org-details > div {
+    min-width: 0;
+
+    padding: 0.8rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-details span {
+    display: block;
+
+    color: var(--text-muted);
+
+    font-size: 0.59rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.sentinel-admin-org-details strong,
+.sentinel-admin-org-details small {
+    display: block;
+
+    overflow-wrap: anywhere;
+}
+
+.sentinel-admin-org-details strong {
+    margin-top: 0.25rem;
+
+    font-size: 0.72rem;
+}
+
+.sentinel-admin-org-details small {
+    margin-top: 0.12rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.62rem;
+}
+
+.sentinel-admin-org-website,
+.sentinel-admin-org-rejection {
+    margin-top: 0.75rem;
+
+    padding: 0.8rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+}
+
+.sentinel-admin-org-website span {
+    display: block;
+
+    margin-bottom: 0.3rem;
+
+    color: var(--text-muted);
+
+    font-size: 0.6rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.sentinel-admin-org-website a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 0.4rem;
+
+    color: var(--text-primary);
+
+    font-size: 0.7rem;
+
+    overflow-wrap: anywhere;
+}
+
+.sentinel-admin-org-rejection strong {
+    font-size: 0.7rem;
+}
+
+.sentinel-admin-org-rejection p {
+    margin: 0.3rem 0 0;
+
+    color: var(--text-muted);
+
+    font-size: 0.68rem;
+
+    line-height: 1.55;
+}
+
+.sentinel-admin-org-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 0.6rem;
+
+    margin-top: 1rem;
+}
+
+.sentinel-admin-approve-button,
+.sentinel-admin-reject-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 0.4rem;
+
+    min-width: 110px;
+
+    min-height: 42px;
+
+    border-radius: var(--radius-md);
+
+    font-size: 0.7rem;
+
+    font-weight: 700;
+}
+
+.sentinel-admin-approve-button {
+    border: 1px solid var(--accent);
+
+    background: var(--accent);
+
+    color: var(--accent-text);
+}
+
+.sentinel-admin-reject-button {
+    border: 1px solid var(--border-color-strong);
+
+    background: var(--surface-primary);
+
+    color: var(--text-primary);
+}
+
+.sentinel-admin-org-modal-backdrop {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 1rem;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+}
+
+.sentinel-admin-org-modal {
+    width:
+        min(
+            520px,
+            100%
+        );
+
+    padding: 1.25rem;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--surface-primary);
+
+    box-shadow: var(--shadow-lg);
+}
+
+.sentinel-admin-org-modal-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 1rem;
+}
+
+.sentinel-admin-org-modal-header h2 {
+    margin: 0.25rem 0 0;
+
+    font-size: 1.1rem;
+}
+
+.sentinel-admin-org-modal > p {
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+
+    line-height: 1.6;
+}
+
+.sentinel-admin-org-modal-close {
+    width: 34px;
+    height: 34px;
+
+    display: grid;
+
+    place-items: center;
+
+    border: 1px solid var(--border-color);
+
+    border-radius: var(--radius-md);
+
+    background: var(--surface-secondary);
+
+    color: var(--text-primary);
+}
+
+.sentinel-admin-org-modal-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 0.6rem;
+
+    margin-top: 1rem;
+}
+
+@media (
+    max-width: 800px
+) {
+    .sentinel-admin-org-heading {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .sentinel-admin-org-filter {
+        width: 100%;
+    }
+
+    .sentinel-admin-org-stats {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+    }
+
+    .sentinel-admin-org-details {
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+    }
+}
+
+@media (
+    max-width: 520px
+) {
+    .sentinel-admin-org-stats,
+    .sentinel-admin-org-details {
+        grid-template-columns:
+            1fr;
+    }
+
+    .sentinel-admin-org-card-top {
+        flex-direction: column;
+    }
+
+    .sentinel-admin-org-actions,
+    .sentinel-admin-org-modal-actions {
+        flex-direction: column-reverse;
+    }
+
+    .sentinel-admin-org-actions .btn,
+    .sentinel-admin-org-modal-actions .btn {
+        width: 100%;
+    }
+}

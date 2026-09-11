@@ -1,6 +1,4 @@
 import {
-    createContext,
-    useContext,
     useEffect,
     useMemo,
     useState
@@ -15,8 +13,7 @@ import "./themes/sentinel-default.css";
 import "./themes/twilight-ocean.css";
 import "./themes/windows-xp.css";
 
-const ThemeContext =
-    createContext(null);
+import { ThemeContext } from "./theme-context.js";
 
 const STORAGE_KEY =
     "sentinel_theme";
@@ -119,19 +116,4 @@ export const ThemeProvider = ({
             {children}
         </ThemeContext.Provider>
     );
-};
-
-export const useTheme = () => {
-    const context =
-        useContext(
-            ThemeContext
-        );
-
-    if (!context) {
-        throw new Error(
-            "useTheme must be used inside ThemeProvider."
-        );
-    }
-
-    return context;
 };

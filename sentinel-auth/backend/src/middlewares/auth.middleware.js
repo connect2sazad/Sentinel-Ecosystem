@@ -5,7 +5,8 @@ import {
 } from "../utils/token.js";
 
 import {
-    Session
+    Session,
+    User
 } from "../models/index.js";
 
 const authMiddleware = async (
@@ -94,6 +95,15 @@ const authMiddleware = async (
             401,
             "SESSION_EXPIRED"
         );
+    }
+
+    const user = await User.findOne({
+        where: { id: payload.sub, status: true },
+        attributes: ["id"]
+    });
+
+    if (!user) {
+        throw new AppException("Your account is no longer active.", 401, "ACCOUNT_INACTIVE");
     }
 
     req.auth =

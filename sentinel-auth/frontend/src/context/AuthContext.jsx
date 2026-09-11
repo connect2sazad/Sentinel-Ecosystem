@@ -1,7 +1,5 @@
 import {
-    createContext,
     useCallback,
-    useContext,
     useEffect,
     useMemo,
     useState
@@ -13,21 +11,24 @@ import {
     clearAccessToken
 } from "../api/token.store.js";
 
-const AuthContext =
-    createContext(null);
+import { AuthContext } from "./auth-context.js";
 
-const findUser = (
+const extractAccountData = (
     response
 ) => {
     if (!response) {
         return null;
     }
 
-    /*
-    |--------------------------------------------------------------------------
-    | Supports the response structures commonly used by the backend
-    |--------------------------------------------------------------------------
-    */
+    return response;
+};
+
+const extractUser = (
+    response
+) => {
+    if (!response) {
+        return null;
+    }
 
     return (
         response.user ||
@@ -46,6 +47,12 @@ export const AuthProvider = ({
         useState(null);
 
     const [
+        account,
+        setAccount
+    ] =
+        useState(null);
+
+    const [
         initializing,
         setInitializing
     ] =
@@ -57,17 +64,34 @@ export const AuthProvider = ({
     ] =
         useState(false);
 
-    /*
-    |--------------------------------------------------------------------------
-    | Restore Session
-    |--------------------------------------------------------------------------
-    |
-    | Access tokens live only in memory.
-    |
-    | Therefore after a browser refresh we use the HttpOnly refresh
-    | cookie to obtain a fresh access token and then request /me.
-    |
-    */
+    const loadAccount =
+        useCallback(
+            async () => {
+                const response =
+                    await authApi.me();
+
+                const accountData =
+                    extractAccountData(
+                        response
+                    );
+
+                const currentUser =
+                    extractUser(
+                        response
+                    );
+
+                setAccount(
+                    accountData
+                );
+
+                setUser(
+                    currentUser
+                );
+
+                return accountData;
+            },
+            []
+        );
 
     const restoreSession =
         useCallback(
@@ -75,45 +99,34 @@ export const AuthProvider = ({
                 try {
                     await authApi.refresh();
 
-                    const meResponse =
-                        await authApi.me();
-
-                    setUser(
-                        findUser(
-                            meResponse
-                        )
-                    );
-                } catch (
-                    error
-                ) {
+                    await loadAccount();
+                } catch {
                     clearAccessToken();
 
-                    setUser(
-                        null
-                    );
+                    setUser(null);
+
+                    setAccount(null);
                 } finally {
                     setInitializing(
                         false
                     );
                 }
             },
-            []
+            [
+                loadAccount
+            ]
         );
 
     useEffect(
         () => {
+            // Session restoration updates state after asynchronous API calls.
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             restoreSession();
         },
         [
             restoreSession
         ]
     );
-
-    /*
-    |--------------------------------------------------------------------------
-    | Login
-    |--------------------------------------------------------------------------
-    */
 
     const login =
         useCallback(
@@ -129,61 +142,55 @@ export const AuthProvider = ({
                         credentials
                     );
 
-                    const meResponse =
-                        await authApi.me();
+                    const accountData =
+                        await loadAccount();
 
-                    const currentUser =
-                        findUser(
-                            meResponse
-                        );
-
-                    setUser(
-                        currentUser
-                    );
-
-                    return currentUser;
+                    return accountData;
                 } finally {
                     setAuthenticating(
                         false
                     );
                 }
             },
-            []
+            [
+                loadAccount
+            ]
         );
-
-    /*
-    |--------------------------------------------------------------------------
-    | Logout
-    |--------------------------------------------------------------------------
-    */
 
     const logout =
         useCallback(
             async () => {
                 try {
                     await authApi.logout();
-                } catch (
-                    error
-                ) {
-                    /*
-                    | Even if the backend request fails,
-                    | remove frontend authentication state.
-                    */
+                } catch {
+                    // Frontend session should still be cleared.
                 } finally {
                     clearAccessToken();
 
-                    setUser(
-                        null
-                    );
+                    setUser(null);
+
+                    setAccount(null);
                 }
             },
             []
+        );
+
+    const refreshAccount =
+        useCallback(
+            async () => {
+                return loadAccount();
+            },
+            [
+                loadAccount
+            ]
         );
 
     const value =
         useMemo(
             () => ({
                 user,
+
+                account,
 
                 initializing,
 
@@ -198,15 +205,19 @@ export const AuthProvider = ({
 
                 logout,
 
-                restoreSession
+                restoreSession,
+
+                refreshAccount
             }),
             [
                 user,
+                account,
                 initializing,
                 authenticating,
                 login,
                 logout,
-                restoreSession
+                restoreSession,
+                refreshAccount
             ]
         );
 
@@ -219,19 +230,4 @@ export const AuthProvider = ({
             {children}
         </AuthContext.Provider>
     );
-};
-
-export const useAuth = () => {
-    const context =
-        useContext(
-            AuthContext
-        );
-
-    if (!context) {
-        throw new Error(
-            "useAuth must be used inside AuthProvider."
-        );
-    }
-
-    return context;
 };

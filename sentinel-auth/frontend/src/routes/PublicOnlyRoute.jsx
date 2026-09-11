@@ -4,7 +4,7 @@ import {
 
 import {
     useAuth
-} from "../context/AuthContext.jsx";
+} from "../context/auth-context.js";
 
 import AppLoader from "../components/common/AppLoader.jsx";
 

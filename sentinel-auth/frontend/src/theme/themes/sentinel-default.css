@@ -379,3 +379,145 @@
             block;
     }
 }
+
+/*
+|--------------------------------------------------------------------------
+| Account / Invitation - Sentinel Default
+|--------------------------------------------------------------------------
+*/
+
+.theme-sentinel-default
+.sentinel-dashboard-toolbar {
+    border-color: #deded9;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.88
+        );
+
+    box-shadow:
+        0 8px 25px
+        rgba(
+            0,
+            0,
+            0,
+            0.04
+        );
+}
+
+.theme-sentinel-default
+.sentinel-invitation-action {
+    border-color: #111111;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #242424,
+            #111111
+        );
+
+    color: #ffffff;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-action:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #333333,
+            #1d1d1d
+        );
+}
+
+.theme-sentinel-default
+.sentinel-invitation-action-icon {
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.12
+        );
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+}
+
+.theme-sentinel-default
+.sentinel-admin-review-action {
+    background: #ffffff;
+
+    border-color: #deded9;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-page {
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(
+                0,
+                0,
+                0,
+                0.035
+            ),
+            transparent 35%
+        ),
+        #f5f5f2;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-card {
+    border: 1px solid #deded9;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 30px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.07
+        );
+}
+
+.theme-sentinel-default
+.sentinel-invitation-icon {
+    background: #111111;
+
+    border-color: #111111;
+
+    color: #ffffff;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-card
+.form-control {
+    background: #f7f7f4;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-submit {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.theme-sentinel-default
+.sentinel-invitation-submit:hover {
+    background: #292929;
+}
